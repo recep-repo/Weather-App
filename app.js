@@ -13,7 +13,8 @@ button.addEventListener("click", e => {
 const getDataFromApi = async () => {
     let apikey = localStorage.getItem("apikey")
     let request = input.value
-    const url =  `http://api.openweathermap.org/data/2.5/weather?q=${request}&appid=${apikey}&units=metric`
+    let type = "metric"
+    const url =  `http://api.openweathermap.org/data/2.5/weather?q=${request}&appid=${apikey}&units=${type}`
 
     try {
         const response = await axios.get(url)
