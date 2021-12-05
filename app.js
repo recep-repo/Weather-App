@@ -16,7 +16,7 @@ const getDataFromApi = async () => {
     const url =  `http://api.openweathermap.org/data/2.5/weather?q=${request}&appid=${apikey}&units=metric`
 
     try {
-        const response = await axios(url)
+        const response = await axios.get(url)
         const {weather, name, sys, main} = response.data
         const iconUrl = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0].icon}.svg`
         list.innerHTML += ` 
