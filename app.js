@@ -14,7 +14,7 @@ const getDataFromApi = async () => {
     let apikey = localStorage.getItem("apikey")
     let request = input.value
     let type = "metric"
-    const url =  `http://api.openweathermap.org/data/2.5/weather?q=${request}&appid=${apikey}&units=${type}`
+    const url =  `https://api.openweathermap.org/data/2.5/weather?q=${request}&appid=${apikey}&units=${type}`
 
     try {
         const response = await axios.get(url)
