@@ -18,16 +18,18 @@ const getDataFromApi = async () => {
 
     try {
         const response = await axios.get(url)
+        console.log(response);
         const {weather, name, sys, main} = response.data
         const iconUrl = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0].icon}.svg`
         list.innerHTML += ` 
             <div class="card-deck">
             
                 <div class="card m-3">
-                    <img src="${iconUrl}" class="card-img-top" alt="..." style="width: 8rem; height: 6rem " >
+                    <img src="${iconUrl}" class="mx-auto d-block" alt="..." style="width: 8rem; height: 6rem " >
                     <div class="card-body text-center">
                         <h5 class="card-title">${name} <sup>${sys.country}</sup></h5>
                         <p class="card-text">${Math.round(main.temp)}<sup>°C</sup></p>
+                        <p class="card-text text-uppercase">${weather[0].description}</p>
                     </div>
                 </div>
             </div>`
